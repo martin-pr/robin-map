@@ -40,6 +40,13 @@ matrix:
         - CXXFLAGS="-fno-exceptions"
       
     - os: linux
+      compiler: clang
+      dist: xenial
+      env:
+        - CBUILD_TYPE="Release"
+        - CXXFLAGS="-fno-exceptions -std=c++17"
+      
+    - os: linux
       compiler: gcc
       env:
         - TYPE="coverage"
