@@ -33,6 +33,12 @@ matrix:
         - CXXFLAGS="-fsanitize=address,undefined"
       
     - os: linux
+      dist: xenial
+      env:
+        - CBUILD_TYPE="Release"
+        - CXXFLAGS="-fno-exceptions"
+      
+    - os: linux
       compiler: gcc
       env:
         - TYPE="coverage"
