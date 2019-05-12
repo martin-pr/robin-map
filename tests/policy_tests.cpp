@@ -41,7 +41,7 @@ using test_types = boost::mpl::list<tsl::rh::power_of_two_growth_policy<2>,
                                     tsl::rh::mod_growth_policy<>,
                                     tsl::rh::mod_growth_policy<std::ratio<7,2>>>;
 
-
+#ifndef TSL_RH_NO_EXCEPTIONS
 BOOST_AUTO_TEST_CASE_TEMPLATE(test_policy, Policy, test_types) {
     // Call next_bucket_count() on the policy until we reach its max_bucket_count()
     bool exception_thrown = false;
@@ -69,6 +69,7 @@ BOOST_AUTO_TEST_CASE_TEMPLATE(test_policy, Policy, test_types) {
     
     BOOST_CHECK(exception_thrown);
 }
+#endif
 
 BOOST_AUTO_TEST_CASE_TEMPLATE(test_policy_min_bucket_count, Policy, test_types) {
     // Check polcy when a bucket_count of 0 is asked.
@@ -78,6 +79,7 @@ BOOST_AUTO_TEST_CASE_TEMPLATE(test_policy_min_bucket_count, Policy, test_types) 
     BOOST_CHECK_EQUAL(policy.bucket_for_hash(0), 0);
 }
 
+#ifndef TSL_RH_NO_EXCEPTIONS
 BOOST_AUTO_TEST_CASE_TEMPLATE(test_policy_max_bucket_count, Policy, test_types) {
     // Test a bucket_count equals to the max_bucket_count limit and above
     std::size_t bucket_count = 0;
@@ -95,6 +97,6 @@ BOOST_AUTO_TEST_CASE_TEMPLATE(test_policy_max_bucket_count, Policy, test_types) 
     bucket_count = policy.max_bucket_count() + 1;
     BOOST_CHECK_THROW((Policy(bucket_count)), std::length_error);
 }
-
+#endif
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -49,6 +49,7 @@
 #if (defined(__cpp_exceptions) || defined(__EXCEPTIONS) || (defined (_MSC_VER) && defined (_CPPUNWIND))) && !defined(TSL_NO_EXCEPTIONS)
 #    define TSL_RH_THROW_OR_TERMINATE(ex, msg) throw ex(msg)
 #else
+#    define TSL_RH_NO_EXCEPTIONS
 #    ifdef NDEBUG
 #        define TSL_RH_THROW_OR_TERMINATE(ex, msg) std::terminate()
 #    else

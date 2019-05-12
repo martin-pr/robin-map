@@ -251,12 +251,12 @@ public:
 
 template<>
 inline std::int64_t utils::get_key<std::int64_t>(std::size_t counter) {
-    return boost::numeric_cast<std::int64_t>(counter);
+    return static_cast<std::int64_t>(counter);
 }
 
 template<>
 inline self_reference_member_test utils::get_key<self_reference_member_test>(std::size_t counter) {
-    return self_reference_member_test(boost::numeric_cast<std::int64_t>(counter));
+    return self_reference_member_test(static_cast<std::int64_t>(counter));
 }
 
 template<>
@@ -266,12 +266,12 @@ inline std::string utils::get_key<std::string>(std::size_t counter) {
 
 template<>
 inline move_only_test utils::get_key<move_only_test>(std::size_t counter) {
-    return move_only_test(boost::numeric_cast<std::int64_t>(counter));
+    return move_only_test(static_cast<std::int64_t>(counter));
 }
 
 template<>
 inline copy_only_test utils::get_key<copy_only_test>(std::size_t counter) {
-    return copy_only_test(boost::numeric_cast<std::int64_t>(counter));
+    return copy_only_test(static_cast<std::int64_t>(counter));
 }
 
 
@@ -279,12 +279,12 @@ inline copy_only_test utils::get_key<copy_only_test>(std::size_t counter) {
 
 template<>
 inline std::int64_t utils::get_value<std::int64_t>(std::size_t counter) {
-    return boost::numeric_cast<std::int64_t>(counter*2);
+    return static_cast<std::int64_t>(counter*2);
 }
 
 template<>
 inline self_reference_member_test utils::get_value<self_reference_member_test>(std::size_t counter) {
-    return self_reference_member_test(boost::numeric_cast<std::int64_t>(counter*2));
+    return self_reference_member_test(static_cast<std::int64_t>(counter*2));
 }
 
 template<>
@@ -294,12 +294,12 @@ inline std::string utils::get_value<std::string>(std::size_t counter) {
 
 template<>
 inline move_only_test utils::get_value<move_only_test>(std::size_t counter) {
-    return move_only_test(boost::numeric_cast<std::int64_t>(counter*2));
+    return move_only_test(static_cast<std::int64_t>(counter*2));
 }
 
 template<>
 inline copy_only_test utils::get_value<copy_only_test>(std::size_t counter) {
-    return copy_only_test(boost::numeric_cast<std::int64_t>(counter*2));
+    return copy_only_test(static_cast<std::int64_t>(counter*2));
 }
 
 

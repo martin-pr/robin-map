@@ -33,6 +33,7 @@ matrix:
         - CXXFLAGS="-fsanitize=address,undefined"
       
     - os: linux
+      compiler: clang
       dist: xenial
       env:
         - CBUILD_TYPE="Release"

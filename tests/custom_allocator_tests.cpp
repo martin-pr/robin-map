@@ -77,7 +77,11 @@ public:
         
         pointer ptr = static_cast<pointer>(std::malloc(n * sizeof(T)));
         if(ptr == nullptr) {
+#ifndef TSL_RH_NO_EXCEPTIONS
             throw std::bad_alloc();
+#else
+            std::terminate();
+#endif
         }
         
         return ptr;
