@@ -1,0 +1,14 @@
+Source: librobin-map
+Section: graphics
+Priority: optional
+Maintainer: Martin Prazak <martin.prazak@gmail.com>
+Build-Depends: debhelper (>= 9), cmake, pkg-config, libc6-dev
+Standards-Version: 4.1.2
+Homepage: https://github.com/Tessil/robin-map
+Vcs-Git: https://github.com/Tessil/robin-map
+Vcs-Browser: https://github.com/Tessil/robin-map
+
+Package: librobin-map
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: The robin-map library is a C++ implementation of a fast hash map and hash set using open-addressing and linear robin hood hashing with backward shift deletion to resolve collisions.
